@@ -20,15 +20,14 @@ pipeline {
             }
         }
 
-        stage('Docker Build') {
-            steps {
-                sh '''
-                cd backend
-                docker build -t resume-backend .
-                '''
-            }
-        }
-
+stage('Docker Build') {
+    steps {
+        sh '''
+        cd backend
+        docker build -t resume-backend .
+        '''
+    }
+}
         stage('Deploy') {
             steps {
                 sh '''
