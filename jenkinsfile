@@ -5,8 +5,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/asmitsharma1/Resume-Analyser.git'
+                git 'https://github.com/asmitsharma1/Resume-Analyser.git'
             }
         }
 
@@ -24,6 +23,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh '''
+                cd backend
                 docker build -t resume-backend .
                 '''
             }
@@ -32,8 +32,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                docker rm -f resume || true
-                docker run -d -p 8000:8000 --name resume resume-backend
+                docker stop resume-backend || true
+                docker rm resume-backend || true
+                docker run -d -p 8000:8000 --name resume-backend resume-backend
                 '''
             }
         }
