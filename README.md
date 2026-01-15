@@ -12,8 +12,6 @@ This project automatically:
 - Frontend + Backend connected
 - Ready for CI/CD
 
----
-
 ## 📌 Why I Built This
 
 While learning:
