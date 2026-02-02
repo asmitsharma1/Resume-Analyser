@@ -117,7 +117,7 @@ export default function Hero() {
           color: "#9ca3af",
         }}
       >
-        ↓ Scroll
+        ↓ Scroll down to explore more ↓
       </div>
     </section>
   );
